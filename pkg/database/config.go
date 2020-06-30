@@ -48,7 +48,7 @@ func (c *Config) ConnectionString() string {
 
 func dbValues(config *Config) map[string]string {
 	p := map[string]string{}
-	setIfNotEmpty(p, "dbname", config.Name)
+	setIfNotEmpty(p, "path", config.Name)
 	setIfNotEmpty(p, "user", config.User)
 	setIfNotEmpty(p, "host", config.Host)
 	setIfNotEmpty(p, "port", config.Port)
