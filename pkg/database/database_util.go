@@ -79,7 +79,8 @@ func NewTestDatabaseWithConfig(tb testing.TB) (*Database, *Config) {
 
 	// Get the host. On Mac, Docker runs in a VM.
 	// host := container.Container.NetworkSettings.IPAddress
-	host := container.GetBoundIP("5432/tcp")
+	// host := container.GetBoundIP("5432/tcp")
+	host = "0.0.0.0"
 	port := container.GetPort("5432/tcp")
 	if runtime.GOOS == "darwin" {
 		host = container.GetBoundIP("5432/tcp")
