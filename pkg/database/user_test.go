@@ -75,7 +75,9 @@ func TestUserNotFound(t *testing.T) {
 
 func TestPurgeUsers(t *testing.T) {
 	t.Parallel()
+	t.Logf("Create Test Database")
 	db := NewTestDatabase(t)
+	t.Logf("Test Database Created: %v", db)
 
 	email := "dr@example.com"
 	user := User{
