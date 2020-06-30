@@ -43,12 +43,13 @@ func (c *Config) ConnectionString() string {
 	for k, v := range vals {
 		p = append(p, fmt.Sprintf("%s=%s", k, v))
 	}
+	fmt.Println("CONN STR")
 	return strings.Join(p, " ")
 }
 
 func dbValues(config *Config) map[string]string {
 	p := map[string]string{}
-	setIfNotEmpty(p, "path", config.Name)
+	setIfNotEmpty(p, "dbname", config.Name)
 	setIfNotEmpty(p, "user", config.User)
 	setIfNotEmpty(p, "host", config.Host)
 	setIfNotEmpty(p, "port", config.Port)

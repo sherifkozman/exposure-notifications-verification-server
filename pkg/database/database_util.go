@@ -106,7 +106,8 @@ func NewTestDatabaseWithConfig(tb testing.TB) (*Database, *Config) {
 		db, err = config.Open()
 		if err != nil {
 			tb.Logf("retrying error: %v", err)
-			return retry.RetryableError(err)
+			// return retry.RetryableError(err)
+			return err
 		}
 		return nil
 	}); err != nil {

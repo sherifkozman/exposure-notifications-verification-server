@@ -26,17 +26,20 @@ import (
 // Database is a handle to the database layer for the Exposure Notifications
 // Verification Server.
 type Database struct {
-	db     *gorm.DB
-	config *Config
+	db *gorm.DB
+	// config *Config
 }
 
 // Open created a DB connection through gorm.
 func (c *Config) Open() (*Database, error) {
-	db, err := gorm.Open("postgres", c.ConnectionString())
-	if err != nil {
-		return nil, fmt.Errorf("database gorm.Open: %w", err)
-	}
-	return &Database{db, c}, nil
+	return nil, fmt.Errorf("database gorm.Open: %v", c.ConnectionString())
+
+	// db, err := gorm.Open("postgres", c.ConnectionString())
+
+	// if err != nil {
+	// 	return nil, fmt.Errorf("database gorm.Open: %w", err)
+	// }
+	// return &Database{db, c}, nil
 }
 
 // Close will close the database connection. Should be deferred right after Open.
